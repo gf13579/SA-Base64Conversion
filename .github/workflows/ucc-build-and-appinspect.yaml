@@ -32,7 +32,14 @@ jobs:
       run: |
         find . -name searchbnf.conf | xargs -I {} bash -c 'FIRST_LINE=$(head -n 1 "{}"); if ! echo "$FIRST_LINE" | grep -q -- "-command"; then sed -i "1s/\\[\\(.*\\)\\]/[\\1-command]/" "{}"; fi'
 
+    - name: Create archive folder
+      run: |
+        mkdir archive
+
+    - name: Run UCC Gen Build
+      run: ucc-gen package --path 'output/${{ github.event.repository.name }}' --output archive
+
     - name: Run Splunk AppInspect Check
       uses: splunk/appinspect-cli-action@v1
       with:
-        app_path: 'output'
+        app_path: 'archive'
