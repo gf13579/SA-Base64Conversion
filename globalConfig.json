@@ -1,0 +1,37 @@
+{
+    "meta": {
+        "name": "SA-Base64Conversion",
+        "restRoot": "SA-Base64Conversion",
+        "version": "0.0.1",
+        "displayName": "Supporting Add-on for Base64 Conversion",
+        "schemaVersion": "0.0.9",
+        "supportedThemes": [
+            "light",
+            "dark"
+        ]
+    },
+    "customSearchCommand": [
+        {
+            "commandName": "b64",
+            "fileName": "base64process.py",
+            "commandType": "streaming",
+            "arguments": [
+                {
+                    "name": "action",
+                    "required": true
+                },
+                {
+                    "name": "field",
+                    "validate": {
+                        "type": "Fieldname"
+                    },
+                    "required": true
+                }
+            ],
+            "requiredSearchAssistant": true,
+            "syntax": "b64 action=<str> field=<str>",
+            "description": "Encodes or decodes the specified field using base64",
+            "usage": "public"
+        }
+    ]
+}
