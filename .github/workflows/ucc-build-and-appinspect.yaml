@@ -1,0 +1,38 @@
+name: UCC Build and AppInspect on Feature Push
+
+on:
+  push:
+    branches:
+      - 'feature/*'
+
+jobs:
+  build-and-inspect:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x' # Use a suitable Python version, e.g., '3.9', '3.10', '3.11'
+
+    - name: Install Python dependencies
+      run: |
+        pip install splunk-add-on-ucc-framework
+        pip install splunk-appinspect
+
+    - name: Run UCC Gen Build
+      run: ucc-gen build --source package
+
+    - name: Temporary workaround for UCC searchbnf.conf bug
+      # This is a temporary workaround for a bug in UCC where searchbnf.conf stanzas
+      # are not correctly prefixed with '-command'.
+      run: |
+        find . -name searchbnf.conf | xargs -I {} bash -c 'FIRST_LINE=$(head -n 1 "{}"); if ! echo "$FIRST_LINE" | grep -q -- "-command"; then sed -i "1s/\\[\\(.*\\)\\]/[\\1-command]/" "{}"; fi'
+
+    - name: Run Splunk AppInspect Check
+      uses: splunk/appinspect-cli-action@v1
+      with:
+        app_path: 'output/${{ github.event.repository.name }}'
