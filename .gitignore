@@ -208,3 +208,4 @@ output/
 *.tar.gz
 *.spl
 validation*.html
+!app.manifest
