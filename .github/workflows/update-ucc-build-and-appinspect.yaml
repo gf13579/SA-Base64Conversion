@@ -1,4 +1,4 @@
-name: UCC Build and AppInspect on Feature Push
+name: Update - UCC Build and AppInspect on Feature Push
 
 on:
   push:
