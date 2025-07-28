@@ -2,7 +2,7 @@
     "meta": {
         "name": "SA-Base64Conversion",
         "restRoot": "SA-Base64Conversion",
-        "version": "0.0.2+2c0c5a0",
+        "version": "0.0.5+6faafcc",
         "displayName": "Supporting Add-on for Base64 Conversion",
         "schemaVersion": "0.0.9",
         "supportedThemes": [

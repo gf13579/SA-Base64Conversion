@@ -209,3 +209,8 @@ output/
 *.spl
 validation*.html
 !app.manifest
+
+# Allow package/lib/requirements.txt despite ignoring lib/
+!/package/lib/
+/package/lib/*
+!/package/lib/requirements.txt
