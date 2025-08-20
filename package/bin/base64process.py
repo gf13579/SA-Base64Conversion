@@ -1,6 +1,9 @@
 import sys
 import import_declare_test
 import base64
+import os
+
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "lib"))  # nopep8
 
 from splunklib.searchcommands import \
     dispatch, StreamingCommand, Configuration, Option, validators
