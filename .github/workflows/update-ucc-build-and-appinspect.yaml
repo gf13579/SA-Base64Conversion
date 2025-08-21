@@ -26,11 +26,10 @@ jobs:
     - name: Run UCC Gen Build
       run: ucc-gen build --source package
 
-    - name: Temporary workaround for UCC searchbnf.conf bug
-      # This is a temporary workaround for a bug in UCC where searchbnf.conf stanzas
-      # are not correctly prefixed with '-command'.
+    - name: Insert sys.path modification into b64.py
+      # to allow splunklib etc. to reside in the app's lib/ folder
       run: |
-        find . -name searchbnf.conf | xargs -I {} bash -c 'FIRST_LINE=$(head -n 1 "{}"); if ! echo "$FIRST_LINE" | grep -q -- "-command"; then sed -i "1s/\\[\\(.*\\)\\]/[\\1-command]/" "{}"; fi'
+        sed -i '/import import_declare_test/a\import os\nsys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "lib"))  # nopep8' output/SA-Base64Conversion/bin/b64.py
 
     - name: Create archive folder
       run: |
