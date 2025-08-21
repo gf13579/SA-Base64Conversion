@@ -3,7 +3,7 @@
 
 A small Splunk add-on to provide base64 conversion as a custom command.
 
-Created because there were no supported base64 add-ons anymore on Splunkbase. Also as a reason to play with the [Universal Configuration Console](https://splunk.github.io/addonfactory-ucc-generator/).
+Created because I mistakenly believed there were no supported base64 add-ons anymore on Splunkbase. Also as a reason to play with the [Universal Configuration Console](https://splunk.github.io/addonfactory-ucc-generator/).
 
 Existing add-ons for base64 conversion include:
 - [SA-base64](https://github.com/Kintyre/SA-base64)
@@ -14,6 +14,7 @@ Existing add-ons for base64 conversion include:
 ## Authors
 
 - [@gf13579](https://www.github.com/gf13579)
+
 ## Usage/Examples
 
 ```
