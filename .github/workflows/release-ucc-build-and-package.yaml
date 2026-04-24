@@ -30,7 +30,8 @@ jobs:
 
     - name: Install Python dependencies
       run: |
-        pip install splunk-add-on-ucc-framework
+        #pip install splunk-add-on-ucc-framework
+        pip install splunk-add-on-ucc-framework==6.3.0
         pip install splunk-appinspect
 
     - name: Run UCC Gen Build
