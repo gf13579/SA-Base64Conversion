@@ -2,12 +2,16 @@
     "meta": {
         "name": "SA-Base64Conversion",
         "restRoot": "SA-Base64Conversion",
-        "version": "0.0.6+4f7cde2",
+        "version": "0.0.7+a9363d7",
         "displayName": "Supporting Add-on for Base64 Conversion",
-        "schemaVersion": "0.0.9",
+        "schemaVersion": "0.0.10",
         "supportedThemes": [
             "light",
             "dark"
+        ],
+        "supportedPythonVersion": [
+            "3.9",
+            "3.13"
         ]
     },
     "customSearchCommand": [
